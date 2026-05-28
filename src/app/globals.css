@@ -6,35 +6,92 @@
    Dark mode flips to midnight green with brighter gold.
    ========================================================= */
 
+/* ---- Light theme tokens (defaults) ---- */
+:root {
+  --t-emerald:        #0F5132;
+  --t-emerald-deep:   #08381F;
+  --t-emerald-bright: #1A7C50;
+  --t-emerald-pale:   #DDE9E0;
+
+  --t-gold:           #C9A24F;
+  --t-gold-bright:    #E7C77E;
+  --t-gold-deep:      #9C7C32;
+
+  --t-sage:           #88A296;
+  --t-clay:           #B68A6C;
+
+  --t-ink:            #0E1410;
+  --t-ink-soft:       #243027;
+  --t-ink-muted:      #5C6B61;
+  --t-ink-subtle:     #95A199;
+
+  --t-paper:          #FAF6EE;
+  --t-paper-2:        #F2EBD9;
+  --t-paper-3:        #E8DEC4;
+  --t-paper-4:        #D7CBA9;
+
+  --t-border:         #E5DCC4;
+  --t-border-strong:  #C9BD9C;
+
+  --t-midnight:       #0A1410;
+  --t-midnight-2:     #0F1B14;
+}
+
+/* ---- Dark theme overrides ---- */
+[data-theme="dark"] {
+  --t-emerald:        #1A7C50;
+  --t-emerald-deep:   #0F5132;
+  --t-emerald-bright: #3FAA7A;
+  --t-emerald-pale:   #15251C;
+
+  --t-gold:           #E7C77E;
+  --t-gold-bright:    #F1D89A;
+  --t-gold-deep:      #C9A24F;
+
+  --t-ink:            #FAF6EE;
+  --t-ink-soft:       #D7CBA9;
+  --t-ink-muted:      #95A199;
+  --t-ink-subtle:     #5C6B61;
+
+  --t-paper:          #0A1410;
+  --t-paper-2:        #0F1B14;
+  --t-paper-3:        #15251C;
+  --t-paper-4:        #1A2A20;
+
+  --t-border:         #243027;
+  --t-border-strong:  #2F4036;
+}
+
 @theme {
-  /* Palette */
-  --color-emerald: #0F5132;
-  --color-emerald-deep: #08381F;
-  --color-emerald-bright: #1A7C50;
-  --color-emerald-pale: #DDE9E0;
+  /* Palette wired to runtime CSS variables so dark mode toggling works
+     for every Tailwind utility (bg-paper, text-ink-soft, border-border, …). */
+  --color-emerald:        var(--t-emerald);
+  --color-emerald-deep:   var(--t-emerald-deep);
+  --color-emerald-bright: var(--t-emerald-bright);
+  --color-emerald-pale:   var(--t-emerald-pale);
 
-  --color-gold: #C9A24F;
-  --color-gold-bright: #E7C77E;
-  --color-gold-deep: #9C7C32;
+  --color-gold:        var(--t-gold);
+  --color-gold-bright: var(--t-gold-bright);
+  --color-gold-deep:   var(--t-gold-deep);
 
-  --color-sage: #88A296;
-  --color-clay: #B68A6C;
+  --color-sage: var(--t-sage);
+  --color-clay: var(--t-clay);
 
-  --color-ink: #0E1410;
-  --color-ink-soft: #243027;
-  --color-ink-muted: #5C6B61;
-  --color-ink-subtle: #95A199;
+  --color-ink:        var(--t-ink);
+  --color-ink-soft:   var(--t-ink-soft);
+  --color-ink-muted:  var(--t-ink-muted);
+  --color-ink-subtle: var(--t-ink-subtle);
 
-  --color-paper: #FAF6EE;
-  --color-paper-2: #F2EBD9;
-  --color-paper-3: #E8DEC4;
-  --color-paper-4: #D7CBA9;
+  --color-paper:   var(--t-paper);
+  --color-paper-2: var(--t-paper-2);
+  --color-paper-3: var(--t-paper-3);
+  --color-paper-4: var(--t-paper-4);
 
-  --color-border: #E5DCC4;
-  --color-border-strong: #C9BD9C;
+  --color-border:        var(--t-border);
+  --color-border-strong: var(--t-border-strong);
 
-  --color-midnight: #0A1410;
-  --color-midnight-2: #0F1B14;
+  --color-midnight:   var(--t-midnight);
+  --color-midnight-2: var(--t-midnight-2);
 
   /* Fonts */
   --font-display: var(--font-fraunces), 'Fraunces', 'Cormorant Garamond', serif;
