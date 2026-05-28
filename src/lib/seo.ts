@@ -44,12 +44,7 @@ export function personSchema() {
     alternateName: site.nameBn,
     jobTitle: "Porichalok (Director), Mu'allim",
     url: baseUrl,
-    sameAs: [
-      site.socials.facebook,
-      site.socials.youtube,
-      site.socials.x,
-      site.socials.instagram,
-    ],
+    sameAs: [site.socials.facebook, site.socials.youtube],
     worksFor: {
       "@type": "EducationalOrganization",
       name: site.madrasah.name,
@@ -88,7 +83,7 @@ export function organizationSchema() {
     url: site.madrasah.site,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Bijbi Market Jame Mosque",
+      streetAddress: "340/A/2, South Jatrabari",
       addressLocality: "Jatrabari",
       addressRegion: "Dhaka",
       postalCode: "1204",

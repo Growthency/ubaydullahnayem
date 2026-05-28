@@ -10,6 +10,7 @@ import { MagneticButton } from "@/components/effects/MagneticButton";
 import { Parallax } from "@/components/effects/Parallax";
 import { SectionDivider } from "@/components/effects/SectionDivider";
 import { site } from "@/lib/site";
+import { L } from "@/components/shared/L";
 
 export function Hero() {
   return (
@@ -38,7 +39,12 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="kicker"
           >
-            <span className="shimmer-text">Mu&apos;allim · Porichalok · Khateeb</span>
+            <span className="shimmer-text">
+              <L
+                en="Hafiz · Qari · Mu'allim · Porichalok"
+                bn="হাফেজ · ক্বারী · মুয়াল্লিম · পরিচালক"
+              />
+            </span>
           </motion.span>
 
           <h1 className="font-display text-[15vw] lg:text-[8.2rem] leading-[0.92] tracking-tight balance">
@@ -69,7 +75,9 @@ export function Hero() {
           >
             উবায়দুল্লাহ নাঈম
             <span className="text-ink-muted mx-2">·</span>
-            <span className="text-ink-muted">{site.honorific}</span>
+            <span className="text-ink-muted">
+              <L en="Hafiz · Qari" bn="হাফেজ · ক্বারী" />
+            </span>
           </motion.p>
 
           <motion.div
@@ -78,30 +86,47 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.42 }}
             className="text-xl md:text-2xl text-ink-soft leading-snug max-w-xl"
           >
-            Teaching the next generation to
-            {" "}
-            <span className="text-emerald font-medium">
-              <TypeWriter
-                words={[
-                  "read the Quran with adab.",
-                  "carry deen into the world.",
-                  "honor the chain of teachers.",
-                  "answer Allah without shame.",
-                ]}
-              />
+            <span data-lang="en">
+              Serving the Quran through
+              {" "}
+              <span className="text-emerald font-medium">
+                <TypeWriter
+                  words={[
+                    "hifz and tilawah.",
+                    "qira'at and maqamat.",
+                    "the patient work of a madrasah.",
+                    "an akhlaq tracked beside the surahs.",
+                  ]}
+                />
+              </span>
+            </span>
+            <span data-lang="bn" className="font-bn">
+              কুরআনের সেবায় —
+              {" "}
+              <span className="text-emerald font-medium">
+                <TypeWriter
+                  words={[
+                    "হিফজ ও তিলাওয়াত।",
+                    "ক্বিরাত ও মাকামাত।",
+                    "মাদরাসার ধৈর্যশীল খিদমত।",
+                    "সূরার পাশে আদবের পরিচর্যা।",
+                  ]}
+                />
+              </span>
             </span>
           </motion.div>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
             className="text-ink-muted leading-relaxed max-w-lg pretty"
           >
-            Porichalok of {site.madrasah.name} in Jatrabari, Dhaka. Trained in
-            the classical Dars-e-Nizami chain, working at the meeting point of
-            preserved tradition and disciplined modern pedagogy.
-          </motion.p>
+            <L
+              en={`Porichalok of ${site.madrasah.name} and Hifzul Quran Girls Madrasah in Jatrabari, Dhaka. Trained in qira'at and maqamat under accredited masters, working at the meeting point of classical Islamic education and modern educational management.`}
+              bn={`যাত্রাবাড়ী, ঢাকার ${site.madrasah.nameBn} এবং হিফজুল কুরআন গার্লস মাদরাসার পরিচালক। স্বীকৃত উস্তাদদের অধীনে ক্বিরাত ও মাকামাতে প্রশিক্ষিত — শাস্ত্রীয় ইসলামি শিক্ষা ও আধুনিক ব্যবস্থাপনার সংযোগস্থলে কাজ করেন।`}
+            />
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -111,10 +136,10 @@ export function Hero() {
           >
             <MagneticButton href="/madrasah" variant="primary">
               <BookOpen size={16} />
-              Visit the Madrasah
+              <L en="Visit the Madrasah" bn="মাদরাসা দেখুন" />
             </MagneticButton>
-            <MagneticButton href="/blog" variant="ghost">
-              Read the Journal
+            <MagneticButton href="/lectures" variant="ghost">
+              <L en="Watch lectures" bn="ওয়াজ দেখুন" />
               <ArrowRight size={16} />
             </MagneticButton>
           </motion.div>
@@ -149,14 +174,18 @@ export function Hero() {
               {/* Frame caption */}
               <div className="absolute inset-x-0 bottom-0 p-6 text-paper">
                 <p className="font-display italic-display text-lg leading-snug">
-                  &ldquo;A hafiz is not a tape recorder. The Quran is meant to
-                  live in his manners.&rdquo;
+                  <L
+                    en={<>&ldquo;A hafiz is not a tape recorder. The Quran is meant to live in his manners.&rdquo;</>}
+                    bn={<>&ldquo;হাফেজ কোনো টেপ রেকর্ডার নয়। কুরআন বাঁচার কথা তার আচরণে।&rdquo;</>}
+                  />
                 </p>
                 <div className="mt-3 flex items-center justify-between text-[10px] tracking-[0.22em] uppercase opacity-80">
                   <span className="font-bn text-sm normal-case tracking-normal">
                     {site.madrasah.nameBn}
                   </span>
-                  <span>Jatrabari · Dhaka</span>
+                  <span>
+                    <L en="Jatrabari · Dhaka" bn="যাত্রাবাড়ী · ঢাকা" />
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -170,8 +199,7 @@ export function Hero() {
             aria-hidden
           >
             <span className="font-display text-center text-sm leading-tight px-3">
-              Quran <br />
-              first
+              <L en={<>Quran <br />first</>} bn={<>কুরআন <br />সর্বাগ্রে</>} />
             </span>
           </motion.div>
 
@@ -183,8 +211,7 @@ export function Hero() {
             aria-hidden
           >
             <span className="font-display text-center text-xs leading-tight px-2">
-              Adab <br />
-              tracked
+              <L en={<>Adab <br />tracked</>} bn={<>আদব <br />পরিচর্যা</>} />
             </span>
           </motion.div>
         </div>
@@ -197,7 +224,9 @@ export function Hero() {
         transition={{ delay: 1.4, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ink-muted text-[10px] tracking-[0.3em] uppercase"
       >
-        <span>Scroll</span>
+        <span>
+          <L en="Scroll" bn="স্ক্রল" />
+        </span>
         <span className="w-px h-10 bg-gradient-to-b from-ink-muted to-transparent" />
       </motion.div>
 

@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { ScrollReveal } from "@/components/effects/ScrollReveal";
 import { getAllPosts } from "@/lib/blog";
 import { formatBnDate } from "@/lib/utils";
+import { L } from "@/components/shared/L";
 
 export async function BlogPreview() {
   const posts = await getAllPosts();
@@ -17,11 +18,16 @@ export async function BlogPreview() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
             <ScrollReveal>
-              <span className="kicker">Journal</span>
+              <span className="kicker">
+                <L en="Journal" bn="জার্নাল" />
+              </span>
             </ScrollReveal>
             <ScrollReveal delay={0.05}>
               <h2 className="font-display text-5xl md:text-6xl mt-6 leading-[1.02] tracking-tight balance max-w-2xl">
-                Field notes from <span className="italic-display gradient-text">the work itself</span>.
+                <L
+                  en={<>Field notes from <span className="italic-display gradient-text">the work itself</span>.</>}
+                  bn={<>কাজের মাঠ থেকে <span className="italic-display gradient-text">কিছু টোকা</span>।</>}
+                />
               </h2>
             </ScrollReveal>
           </div>
@@ -30,7 +36,7 @@ export async function BlogPreview() {
               href="/blog"
               className="inline-flex items-center gap-2 text-emerald font-medium link-sweep"
             >
-              All entries <ArrowUpRight size={18} />
+              <L en="All entries" bn="সব লেখা" /> <ArrowUpRight size={18} />
             </Link>
           </ScrollReveal>
         </div>
@@ -47,15 +53,20 @@ export async function BlogPreview() {
                 </span>
                 <span>{formatBnDate(featured.published_at)}</span>
                 <span>·</span>
-                <span>{featured.reading_minutes} min read</span>
+                <span>
+                  {featured.reading_minutes}{" "}
+                  <L en="min read" bn="মিনিট পড়া" />
+                </span>
               </div>
               <h3 className="font-display text-4xl md:text-5xl mt-8 leading-[1.05] tracking-tight group-hover:text-emerald transition-colors balance">
                 {featured.title}
               </h3>
-              <p className="font-bn text-base text-emerald mt-2">{featured.title_bn}</p>
+              {featured.title_bn && (
+                <p className="font-bn text-base text-emerald mt-2">{featured.title_bn}</p>
+              )}
               <p className="mt-6 text-ink-soft leading-relaxed max-w-xl">{featured.excerpt}</p>
               <span className="mt-8 inline-flex items-center gap-2 text-emerald font-medium link-sweep">
-                Read the entry <ArrowUpRight size={18} />
+                <L en="Read the entry" bn="পড়ুন" /> <ArrowUpRight size={18} />
               </span>
             </Link>
           </ScrollReveal>

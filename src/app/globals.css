@@ -567,6 +567,31 @@ body {
 }
 
 /* =========================================================
+   Locale visibility (EN / BN)
+   The LocaleProvider sets data-locale on <html>. Both versions
+   are rendered in the DOM; CSS hides the inactive one.
+   Default is Bengali; we hide English unless the attribute says
+   "en" to avoid an English flash on first paint.
+   ========================================================= */
+
+html [data-lang="en"] { display: none; }
+html [data-lang="bn"] { display: inline; }
+
+html[data-locale="en"] [data-lang="en"] { display: inline; }
+html[data-locale="en"] [data-lang="bn"] { display: none; }
+
+html[data-locale="bn"] [data-lang="bn"] { display: inline; }
+html[data-locale="bn"] [data-lang="en"] { display: none; }
+
+/* block-level bilingual blocks (paragraphs, divs) */
+html [data-lang-block="en"] { display: none; }
+html [data-lang-block="bn"] { display: block; }
+html[data-locale="en"] [data-lang-block="en"] { display: block; }
+html[data-locale="en"] [data-lang-block="bn"] { display: none; }
+html[data-locale="bn"] [data-lang-block="bn"] { display: block; }
+html[data-locale="bn"] [data-lang-block="en"] { display: none; }
+
+/* =========================================================
    Lenis smooth scroll
    ========================================================= */
 

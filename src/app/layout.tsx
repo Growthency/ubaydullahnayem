@@ -99,15 +99,30 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const prePaintScript = `(function(){
+  try {
+    var l = localStorage.getItem('un-locale');
+    document.documentElement.setAttribute('data-locale', (l === 'en' || l === 'bn') ? l : 'bn');
+    var t = localStorage.getItem('un-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {
+    document.documentElement.setAttribute('data-locale', 'bn');
+  }
+})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
+      lang="bn"
+      data-locale="bn"
       suppressHydrationWarning
       className={`${fraunces.variable} ${inter.variable} ${notoBn.variable} ${mono.variable} h-full`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: prePaintScript }} />
+      </head>
       <body className="min-h-full flex flex-col font-body antialiased">
         <a href="#main-content" className="skip-link">
           Skip to main content

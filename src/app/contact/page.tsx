@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { MessageCircle, Mail, Phone, MapPin } from "lucide-react";
-import { FacebookIcon, YoutubeIcon, InstagramIcon } from "@/components/shared/SocialIcons";
+import { FacebookIcon, YoutubeIcon, WhatsAppIcon } from "@/components/shared/SocialIcons";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { GradientBlob } from "@/components/effects/GradientBlob";
@@ -13,7 +13,7 @@ import { MagneticButton } from "@/components/effects/MagneticButton";
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
-    "Salam. Reach out about admissions, lectures, writings, or a question we haven't answered yet.",
+    "Salam. Reach out about admissions, lectures, tilawah, qira'at, or any sincere question.",
   path: "/contact",
 });
 
@@ -153,13 +153,13 @@ export default function ContactPage() {
                   <YoutubeIcon size={16} />
                 </a>
                 <a
-                  href={site.socials.instagram}
+                  href={site.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="grid place-items-center w-10 h-10 rounded-full border border-border hover:border-emerald hover:text-emerald transition-colors"
-                  aria-label="Instagram"
+                  aria-label="WhatsApp"
                 >
-                  <InstagramIcon size={16} />
+                  <WhatsAppIcon size={16} />
                 </a>
               </div>
             </div>

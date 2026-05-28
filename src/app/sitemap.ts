@@ -5,7 +5,7 @@ import { fallbackPosts } from "@/lib/data/posts";
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? site.url;
   const now = new Date();
-  const staticRoutes = ["", "/about", "/madrasah", "/writings", "/lectures", "/blog", "/contact"];
+  const staticRoutes = ["", "/about", "/madrasah", "/gallery", "/lectures", "/blog", "/contact"];
 
   const pages: MetadataRoute.Sitemap = staticRoutes.map((r) => ({
     url: `${base}${r}`,

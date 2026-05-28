@@ -97,7 +97,7 @@ Third, parents read the akhlaq notes more carefully than the academic notes. The
 
 ## Print, fold, use this week
 
-I have included a single-page version of our tracker in the *Writings* section under [An adab tracker for mu'allims](/writings/booklet-akhlaq-tracker). It is six pages, fits on a clipboard, and you can begin using it this week without permission from anyone.
+The tracker is one page, fits on a clipboard, and you can begin using it this week without permission from anyone — just print a simple four-column sheet (Sidq, Amanah, Adab al-mu'allim, Adab al-rifaq) and add a row per student per week.
 `),
   },
   {

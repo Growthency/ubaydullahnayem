@@ -31,10 +31,10 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 inset-x-0 z-50 transition-all duration-500",
+          "fixed inset-x-0 z-50 transition-all duration-500",
           scrolled
-            ? "py-3 backdrop-blur-xl bg-paper/75"
-            : "py-5 bg-transparent",
+            ? "top-0 py-3 backdrop-blur-xl bg-paper/75"
+            : "top-9 py-5 bg-transparent",
         )}
       >
         <div className="container-page flex items-center justify-between gap-6">

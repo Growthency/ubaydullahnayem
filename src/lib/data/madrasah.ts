@@ -1,9 +1,13 @@
 export const madrasah = {
   intro:
-    "Baitul Quran wa Assunnah Madrasah is a residential and day Islamic school in Jatrabari, Dhaka. Founded in 2021, it preserves the classical Dars-e-Nizami chain while running on a modern operational rhythm — small cohorts, formative assessment, written parent reports, and a campus built around tilawah.",
+    "Baitul Quran wa Assunnah Madrasah is a residential and day Islamic school in South Jatrabari, Dhaka. Founded in 2021, it preserves the classical Dars-e-Nizami chain while running on a modern operational rhythm — small cohorts, formative assessment, written parent reports, and a campus built around tilawah.",
+  introBn:
+    "বাইতুল কুরআন ওয়াস সুন্নাহ মাদরাসা — ঢাকার দক্ষিণ যাত্রাবাড়ীতে একটি আবাসিক ও ডে-কেয়ার ইসলামি প্রতিষ্ঠান। ২০২১ সালে প্রতিষ্ঠিত — এটি শাস্ত্রীয় দরসে নিজামি ধারাকে সংরক্ষণ করে আধুনিক ব্যবস্থাপনার সাথে: ছোট দল, নিয়মিত মূল্যায়ন, লিখিত অভিভাবক রিপোর্ট, এবং তিলাওয়াত-কেন্দ্রিক ক্যাম্পাস।",
 
   mission:
     "To raise ideal, self-reliant, and virtuous generations whose hearts are anchored to the Quran and Sunnah and whose minds are equipped for contemporary responsibility — in the home, the masjid, and the world of work.",
+  missionBn:
+    "এমন এক প্রজন্ম গড়ে তোলা — যাঁদের হৃদয় কুরআন ও সুন্নাহে দৃঢ়, যাঁদের মন সমকালীন দায়িত্বের জন্য প্রস্তুত — ঘরে, মসজিদে, কর্মক্ষেত্রে।",
 
   divisions: [
     {

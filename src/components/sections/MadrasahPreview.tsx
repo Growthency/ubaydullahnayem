@@ -4,6 +4,7 @@ import { ArrowUpRight, GraduationCap, Users, BookMarked, Heart } from "lucide-re
 import { ScrollReveal, StaggerReveal, StaggerItem } from "@/components/effects/ScrollReveal";
 import { GradientBlob } from "@/components/effects/GradientBlob";
 import { madrasah } from "@/lib/data/madrasah";
+import { L } from "@/components/shared/L";
 
 const icons = [GraduationCap, Users, BookMarked, Heart];
 
@@ -39,22 +40,33 @@ export function MadrasahPreview() {
 
           <div className="lg:col-span-7 flex flex-col justify-end">
             <ScrollReveal>
-              <span className="kicker">The Madrasah</span>
+              <span className="kicker">
+                <L en="The Madrasah" bn="মাদরাসা" />
+              </span>
             </ScrollReveal>
             <ScrollReveal delay={0.05}>
               <h2 className="font-display text-5xl md:text-6xl mt-6 leading-[1.04] tracking-tight balance">
-                A school built around <span className="italic-display gradient-text">tilawah</span>, not the other way around.
+                <L
+                  en={<>A school built around <span className="italic-display gradient-text">tilawah</span>, not the other way around.</>}
+                  bn={<>একটি মাদরাসা — <span className="italic-display gradient-text">তিলাওয়াতকে কেন্দ্র করে</span> গড়া।</>}
+                />
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
-              <p className="mt-8 text-lg text-ink-soft leading-relaxed pretty max-w-xl">{madrasah.intro}</p>
+              <p className="mt-8 text-lg text-ink-soft leading-relaxed pretty max-w-xl">
+                <L en={madrasah.intro} bn={madrasah.introBn ?? madrasah.intro} />
+              </p>
             </ScrollReveal>
             <ScrollReveal delay={0.25}>
               <Link
                 href="/madrasah"
                 className="mt-6 inline-flex items-center gap-2 text-emerald font-medium link-sweep"
               >
-                Visit Baitul Quran wa Assunnah <ArrowUpRight size={18} />
+                <L
+                  en="Visit Baitul Quran wa Assunnah"
+                  bn="বায়তুল কুরআন ওয়াস সুন্নাহ দেখুন"
+                />
+                <ArrowUpRight size={18} />
               </Link>
             </ScrollReveal>
           </div>

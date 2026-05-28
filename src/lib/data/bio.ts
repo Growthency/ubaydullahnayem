@@ -1,93 +1,160 @@
 export const bio = {
   shortIntro:
-    "Ubaydullah Nayeem is a Bangladeshi educator and the Porichalok (Director) of Baitul Quran wa Assunnah Madrasah in Jatrabari, Dhaka. He spends his days teaching, designing curricula, and mentoring students at the meeting point of classical Islamic scholarship and modern educational craft.",
+    "Hafiz Qari Ubaydullah Nayeem is a young Bangladeshi alim — a hafiz of the Quran, a qari trained in the science of qira'at and maqamat, and an educator. He currently serves as the Porichalok (Director) of Baitul Quran wa Assunnah Madrasah and Hifzul Quran Girls Madrasah in Jatrabari, Dhaka, leading hifz training, qira'at instruction, and the day-to-day life of a residential institution.",
+  shortIntroBn:
+    "হাফেজ ক্বারী উবাইদুল্লাহ নাঈম সাহেব একজন তরুণ ইসলামিক ব্যক্তিত্ব, হিফজুল কুরআনের খাদেম এবং শিক্ষাবিদ। তিনি দীর্ঘদিন ধরে কুরআনের খিদমত, হিফজ প্রশিক্ষণ, বিভিন্ন মাদরাসায় মশক পরিচালনা এবং দ্বীনি শিক্ষার উন্নয়নে কাজ করে যাচ্ছেন। বর্তমানে তিনি ঢাকার প্রাণকেন্দ্র যাত্রাবাড়ীতে বায়তুল কুরআন ওয়াস সুন্নাহ মাদরাসা ও হিফজুল কুরআন গার্লস মাদরাসার পরিচালক হিসেবে দায়িত্ব পালন করছেন এবং বিভিন্ন শিক্ষা ও দাওয়াহমূলক কার্যক্রম পরিচালনা করছেন।",
 
   longIntro: [
-    "Ubaydullah Nayeem is a Bangladeshi educator who has chosen the slow, patient work of building a generation. As Porichalok of Baitul Quran wa Assunnah Madrasah in Jatrabari, Dhaka, he oversees the spiritual, intellectual, and moral formation of students from the Nurani stage through the early years of advanced Islamic study.",
-    "Trained in the Dars-e-Nizami tradition, his teaching draws on the classical Bengali madrasah curriculum — Tajwid, Hifz, Tafsir, Hadith, Fiqh, and Usul — while integrating disciplined contemporary pedagogy: small-cohort instruction, formative assessment, character coaching, and structured family communication. His conviction is simple: the Quran demands the best of our methods, not the lowest acceptable.",
-    "Outside the classroom he writes short essays on Islamic education and family life, leads occasional dars and khutbah, and works one-on-one with parents trying to give their children both deep deen and a steady hand for the world they will inherit.",
+    "Hafiz Qari Ubaydullah Nayeem is a young Bangladeshi alim who has chosen the slow, patient work of building a generation around the Quran. Trained in the classical Bengali madrasah chain and finished in the sciences of qira'at and maqamat under accredited teachers, he now leads two residential institutions in Jatrabari, Dhaka.",
+    "He completed Hifzul Quran from Jamia Islamia Darul Ulum Madania in Jatrabari in 2016–17, followed by Nahbemir from Jamiatul Ashraf in Kazla, Jatrabari in 2019–20. His Tajwid and Sifaat training was completed under Mawlana Qari Anisur Rahman (Principal, Madrasatul Itkan li Ulumil Quran) and Hafez Qari Nesar Ahmad An-Naseeri (Principal, Markazut Tahfeez International Madrasah). His Qira'at and Maqamat training was completed under Shaykh Qari Ahmad bin Yusuf Al-Azhari — President of the International Quran Recitation Organization (IQRA) and Director of Mahadul Qira'at Bangladesh.",
+    "He spent six months as Ustadh at Madrasatul Itkan li Ulumil Quran before being entrusted as Naib-e-Muhtamim of Baitul Quran wa Assunnah Madrasah at its founding in 2021 — where he remains today. He also runs regular mashq sessions as a maashshakh at Baitul Quran Rahimia Madrasah in Kazirgaon, Matuail, Dhaka. He travels regularly to conduct mashq across the country and serves as a judge in Hifzul Quran competitions.",
+    "His mission is to bring together classical Islamic education and modern educational management — building a calm, principled environment where students grow into hafiz, qari, and alim with both depth in deen and dignity in the world they will inherit.",
+  ],
+
+  longIntroBn: [
+    "হাফেজ ক্বারী উবাইদুল্লাহ নাঈম সাহেব একজন তরুণ বাংলাদেশী আলেম, যিনি কুরআনকে কেন্দ্র করে এক প্রজন্ম গড়ে তোলার ধৈর্যশীল কাজে নিজেকে নিবেদিত করেছেন। শাস্ত্রীয় বাংলা মাদরাসা ধারায় প্রশিক্ষিত এবং স্বীকৃত উস্তাদদের অধীনে ক্বিরাত ও মাকামাতে সম্পন্ন তিনি বর্তমানে ঢাকার যাত্রাবাড়ীতে দুটি আবাসিক প্রতিষ্ঠানের নেতৃত্ব দিচ্ছেন।",
+    "তিনি ২০১৬–১৭ সালে যাত্রাবাড়ীর জামিয়া ইসলামিয়া দারুল উলূম মাদানিয়া থেকে হিফজুল কুরআন সম্পন্ন করেন। এরপর ২০১৯–২০ সালে কাজলা, যাত্রাবাড়ীর জামিয়াতুল আশরাফ থেকে নাহবেমীর শেষ করেন। ইলমুস সিফাত ওয়াত তাজবীদ তিনি সম্পন্ন করেছেন মাওলানা ক্বারী আনিসুর রহমান (প্রিন্সিপাল, মাদরাসাতুল ইতকান লি উলূমিল কুরআন) এবং হাফেজ ক্বারী নেছার আহমাদ আন নাছিরী (প্রিন্সিপাল, মারকাজুত তাহফিজ ইন্টারন্যাশনাল মাদরাসা)-এর তত্ত্বাবধানে। ইলমুল ক্বিরাত ওয়াল মাকামাতের সনদ অর্জন করেছেন শায়েখ ক্বারী আহমাদ বিন ইউসুফ আল-আজহারী — আন্তর্জাতিক কুরআন তিলাওয়াত সংস্থা (ইকরা)-এর সভাপতি এবং মাহাদুল ক্বিরাত বাংলাদেশের পরিচালক।",
+    "মাদরাসাতুল ইতকান লি উলূমিল কুরআনে ছয় মাস উস্তাদ হিসেবে দায়িত্ব পালনের পর ২০২১ সালে বায়তুল কুরআন ওয়াস সুন্নাহ মাদরাসা প্রতিষ্ঠাকালেই তিনি নায়েবে মুহতামিম হিসেবে দায়িত্ব গ্রহণ করেন — এই দায়িত্ব আজও বহাল আছে। পাশাপাশি তিনি মাতুয়াইলের কাজিরগাঁওয়ের বাইতুল কুরআন রহিমিয়া মাদরাসায় নিয়মিত মাশশাখ হিসেবে মশক পরিচালনা করেন। দেশের বিভিন্ন প্রান্তে নিয়মিত মশক পরিচালনা করেন এবং হিফজুল কুরআন প্রতিযোগিতায় বিচারক হিসেবেও অংশগ্রহণ করেন।",
+    "তাঁর লক্ষ্য — শাস্ত্রীয় ইসলামি শিক্ষাকে আধুনিক শিক্ষা ব্যবস্থাপনার সাথে সমন্বয় করে এমন একটি শান্ত, আদর্শ পরিবেশ গড়ে তোলা, যেখানে ছাত্ররা হাফেজ, ক্বারী ও আলেম হিসেবে বেড়ে ওঠে — দ্বীনে গভীর, দুনিয়ায় মর্যাদাবান।",
   ],
 
   pillars: [
     {
-      title: "Quran first",
-      titleBn: "কুরআন আগে",
+      title: "Hifz with adab",
+      titleBn: "আদবসহ হিফজ",
       body:
-        "The Quran is the center — its tilawah, hifz, tafsir, and amal — not an add-on to a busy curriculum. Every other subject is arranged around it.",
+        "A hafiz is not a tape recorder. Memorization is paired with character — sidq, adab, and amanah — tracked the same way as sabaq, sabqi, and manzil.",
+      bodyBn:
+        "হাফেজ কোনো টেপ রেকর্ডার নয়। মুখস্থের সাথে চরিত্রের শিক্ষা — সিদক, আদব ও আমানত — সবক, সবকি ও মঞ্জিলের মতোই নিয়মিত পরিমাপ হয়।",
     },
     {
-      title: "Classical depth",
-      titleBn: "শাস্ত্রীয় গভীরতা",
+      title: "Qira'at and maqamat",
+      titleBn: "ক্বিরাত ও মাকামাত",
       body:
-        "Dars-e-Nizami's chain of texts is preserved. Students read Arabic grammar, balagha, mantiq, fiqh and usul the way our scholars did — slowly, with their teachers, and with adab.",
+        "Trained under accredited masters of qira'at and maqamat, the institution teaches tilawah the way it was taught — with the rules of tajwid and the music of the maqamat.",
+      bodyBn:
+        "ক্বিরাত ও মাকামাতের স্বীকৃত উস্তাদদের অধীনে প্রশিক্ষিত — তিলাওয়াত শেখানো হয় যেভাবে শেখানো হতো — তাজবিদের নিয়ম ও মাকামাতের সুরে।",
     },
     {
-      title: "Modern craft",
-      titleBn: "আধুনিক পদ্ধতি",
+      title: "Modern management",
+      titleBn: "আধুনিক ব্যবস্থাপনা",
       body:
-        "Spaced repetition, formative assessment, small cohorts, structured parent conferences. The form should serve the content; the content is non-negotiable.",
+        "Small cohorts, formative assessment, written parent reports, an unhurried daily rhythm. The form serves the content; the content is non-negotiable.",
+      bodyBn:
+        "ছোট দল, নিয়মিত মূল্যায়ন, লিখিত অভিভাবক রিপোর্ট, স্থিরচিত্ত দৈনিক ছন্দ। কাঠামো পাঠকে সেবা দেয় — পাঠ অনপোস।",
     },
     {
-      title: "Character above marks",
-      titleBn: "নম্বরের আগে চরিত্র",
+      title: "Service and dawah",
+      titleBn: "খিদমত ও দাওয়াহ",
       body:
-        "Akhlaq, sidq, adab and amanah are tracked the same way a curriculum is tracked. A hafiz with weak character is a failure of the institution, not a student problem.",
+        "Beyond the campus — regular mashq across the country, judging in Hifzul Quran competitions, training mu'allims and parents in the quiet craft of tarbiyyah.",
+      bodyBn:
+        "ক্যাম্পাসের বাইরেও — দেশজুড়ে নিয়মিত মশক, হিফজুল কুরআন প্রতিযোগিতায় বিচারক, এবং মুয়াল্লিম ও অভিভাবকদের তারবিয়াতের নীরব কারিগরিতে প্রশিক্ষণ।",
     },
   ],
 
   timeline: [
     {
-      year: "Childhood",
-      title: "First mu'allim, last mu'allim",
+      year: "২০১৬–১৭",
+      yearLatin: "2016–17",
+      title: "হিফজুল কুরআন",
+      titleEn: "Hifzul Quran",
       body:
-        "Memorized the Quran under a teacher who held him to the discipline of one ayah at a time, perfectly, before moving on. The habit of patience with detail begins here.",
+        "জামিয়া ইসলামিয়া দারুল উলূম মাদানিয়া, যাত্রাবাড়ী, ঢাকা থেকে হিফজুল কুরআন সম্পন্ন। ত্রিশ পারা — পূর্ণ হিফজ ও ইজতিমাহ।",
+      bodyEn:
+        "Completed full Hifzul Quran from Jamia Islamia Darul Ulum Madania, Jatrabari, Dhaka. Thirty ajza' — full memorization and ijtimaa.",
     },
     {
-      year: "Dars-e-Nizami",
-      title: "Classical curriculum",
+      year: "২০১৯–২০",
+      yearLatin: "2019–20",
+      title: "নাহবেমীর",
+      titleEn: "Nahbemir",
       body:
-        "Read Arabic morphology and syntax, balagha, mantiq, usul al-fiqh, fiqh, hadith and tafsir through the traditional Bengali madrasah chain — one text, one teacher, one shaykh.",
+        "জামিয়াতুল আশরাফ, কাজলা, যাত্রাবাড়ী, ঢাকা থেকে নাহবেমীর সম্পন্ন। আরবি ব্যাকরণ ও সরফের ভিত্তি।",
+      bodyEn:
+        "Completed Nahbemir from Jamiatul Ashraf, Kazla, Jatrabari, Dhaka — the foundation in Arabic grammar and morphology.",
     },
     {
-      year: "Teaching years",
-      title: "Behind the desk, then in front of it",
+      year: "সম্পন্ন",
+      yearLatin: "Completed",
+      title: "ইলমুস সিফাত ওয়াত তাজবীদ",
+      titleEn: "Ilmus Sifat wa-Tajwid",
       body:
-        "Spent his early years teaching Nazera and Hifz, learning that the gap between curriculum and student is closed by attention, repetition, and patience — not by clever methods.",
+        "মাওলানা ক্বারী আনিসুর রহমান (প্রিন্সিপাল, মাদরাসাতুল ইতকান লি উলূমিল কুরআন, ঢাকা) এবং হাফেজ ক্বারী নেছার আহমাদ আন নাছিরী (প্রিন্সিপাল, মারকাজুত তাহফিজ ইন্টারন্যাশনাল মাদরাসা, ঢাকা)-এর তত্ত্বাবধানে।",
+      bodyEn:
+        "Under Mawlana Qari Anisur Rahman (Principal, Madrasatul Itkan li Ulumil Quran, Dhaka) and Hafez Qari Nesar Ahmad An-Naseeri (Principal, Markazut Tahfeez International Madrasah, Dhaka).",
     },
     {
-      year: "2021 — Founding",
-      title: "Baitul Quran wa Assunnah Madrasah",
+      year: "সম্পন্ন",
+      yearLatin: "Completed",
+      title: "ইলমুল ক্বিরাত ওয়াল মাকামাত",
+      titleEn: "Ilmul Qira'at wal-Maqamat",
       body:
-        "Helped establish the madrasah in Jatrabari with a deliberately small student body, a strong residential program, and a parent-facing reporting rhythm uncommon for institutions of its size.",
+        "শায়েখ ক্বারী আহমাদ বিন ইউসুফ আল-আজহারী — সভাপতি, আন্তর্জাতিক কুরআন তিলাওয়াত সংস্থা (ইকরা) ও পরিচালক, মাহাদুল ক্বিরাত বাংলাদেশ-এর তত্ত্বাবধানে।",
+      bodyEn:
+        "Under Shaykh Qari Ahmad bin Yusuf Al-Azhari — President of the International Quran Recitation Organization (IQRA) and Director of Mahadul Qira'at Bangladesh.",
+    },
+  ],
+
+  experience: [
+    {
+      role: "উস্তাদ",
+      roleEn: "Ustadh",
+      place: "মাদরাসাতুল ইতকান লি উলূমিল কুরআন, ঢাকা",
+      placeEn: "Madrasatul Itkan li Ulumil Quran, Dhaka",
+      period: "৬ মাস",
+      periodEn: "6 months",
     },
     {
-      year: "Today",
-      title: "Porichalok · Mu'allim",
-      body:
-        "Spends his weekdays teaching, planning curriculum, reviewing student tilawah, sitting with parents, and writing short essays on Islamic education and family life.",
+      role: "নায়েবে মুহতামিম",
+      roleEn: "Naib-e-Muhtamim (Vice Principal)",
+      place: "বায়তুল কুরআন ওয়াস সুন্নাহ মাদরাসা — ৩৪০/এ/২, দক্ষিণ যাত্রাবাড়ী, ঢাকা-১২০৪",
+      placeEn: "Baitul Quran wa Assunnah Madrasah — 340/A/2, South Jatrabari, Dhaka-1204",
+      period: "২০২১ থেকে চলমান",
+      periodEn: "2021 — present",
+    },
+    {
+      role: "নিয়মিত মাশশাখ",
+      roleEn: "Regular Maashshakh",
+      place: "বাইতুল কুরআন রহিমিয়া মাদরাসা, কাজিরগাঁও, মাতুয়াইল, ঢাকা",
+      placeEn: "Baitul Quran Rahimia Madrasah, Kazirgaon, Matuail, Dhaka",
+      period: "চলমান",
+      periodEn: "Ongoing",
     },
   ],
 
   philosophy: [
     {
       heading: "On students",
+      headingBn: "ছাত্রদের সম্পর্কে",
       body:
         "Every child is owed a teacher who has read the next page before they sit down with him, and a parent who is told the truth — gently and on time. Anything less is not tarbiyyah.",
-    },
-    {
-      heading: "On the curriculum",
-      body:
-        "The Dars-e-Nizami is not a museum. It is a sharpened set of tools for understanding revelation. Preserve the texts, sharpen the methods of teaching them.",
+      bodyBn:
+        "প্রতিটি ছাত্র এমন একজন উস্তাদের অধিকার রাখে যিনি ছাত্রের সামনে বসার আগেই পরবর্তী পৃষ্ঠাটি পড়ে নিয়েছেন; এবং এমন একজন অভিভাবকের অধিকার রাখে যাঁকে সময়মতো ও কোমলভাবে সত্য বলা হয়। এর কম কিছু — তরবিয়ত নয়।",
     },
     {
       heading: "On hifz",
+      headingBn: "হিফজ সম্পর্কে",
       body:
         "A hafiz is not a tape recorder. The Quran is meant to live in his manners, his sleep, his prayer, and the way he speaks to his mother. We measure that, not just the surahs.",
+      bodyBn:
+        "হাফেজ কোনো টেপ রেকর্ডার নয়। কুরআন তার আচরণে, তার ঘুমে, তার সালাতে, এবং মায়ের সাথে কথা বলার ভঙ্গিতে বাঁচার কথা। আমরা শুধু সূরা নয় — তাও পরিমাপ করি।",
+    },
+    {
+      heading: "On qira'at",
+      headingBn: "ক্বিরাত সম্পর্কে",
+      body:
+        "Qira'at is not performance. It is amanah — guarding the Word as it was revealed, and offering it back with the makhraj, the sifat, and the maqam its dignity deserves.",
+      bodyBn:
+        "ক্বিরাত কোনো পারফরম্যান্স নয়। এটি আমানত — আল্লাহর কালামকে যেমন নাযিল হয়েছে তেমন রক্ষা করা, এবং মাখরাজ, সিফাত ও মাকাম দিয়ে তার যথাযথ মর্যাদায় ফিরিয়ে দেওয়া।",
     },
     {
       heading: "On the world",
+      headingBn: "দুনিয়া সম্পর্কে",
       body:
         "Our students will not live in a hadith book. They will live in offices, hospitals, courtrooms, kitchens, and parliaments. The deen has to be a living thing they take into those rooms, not a costume they wear on the way in.",
+      bodyBn:
+        "আমাদের ছাত্ররা হাদিসের কিতাবে বসবাস করবে না। তারা অফিস, হাসপাতাল, আদালত, রান্নাঘর ও সংসদে বাস করবে। দ্বীন তাদের জন্য সেই কক্ষগুলিতে নিয়ে যাওয়া এক জীবন্ত বিষয় — প্রবেশপথে পরা কোনো পোশাক নয়।",
     },
   ],
 
