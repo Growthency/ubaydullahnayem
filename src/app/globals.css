@@ -1,0 +1,584 @@
+@import "tailwindcss";
+
+/* =========================================================
+   Brand tokens — Modern Islamic Premium
+   Emerald + warm gold on a parchment paper canvas.
+   Dark mode flips to midnight green with brighter gold.
+   ========================================================= */
+
+@theme {
+  /* Palette */
+  --color-emerald: #0F5132;
+  --color-emerald-deep: #08381F;
+  --color-emerald-bright: #1A7C50;
+  --color-emerald-pale: #DDE9E0;
+
+  --color-gold: #C9A24F;
+  --color-gold-bright: #E7C77E;
+  --color-gold-deep: #9C7C32;
+
+  --color-sage: #88A296;
+  --color-clay: #B68A6C;
+
+  --color-ink: #0E1410;
+  --color-ink-soft: #243027;
+  --color-ink-muted: #5C6B61;
+  --color-ink-subtle: #95A199;
+
+  --color-paper: #FAF6EE;
+  --color-paper-2: #F2EBD9;
+  --color-paper-3: #E8DEC4;
+  --color-paper-4: #D7CBA9;
+
+  --color-border: #E5DCC4;
+  --color-border-strong: #C9BD9C;
+
+  --color-midnight: #0A1410;
+  --color-midnight-2: #0F1B14;
+
+  /* Fonts */
+  --font-display: var(--font-fraunces), 'Fraunces', 'Cormorant Garamond', serif;
+  --font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-bn: var(--font-noto-bn), 'Noto Serif Bengali', 'SolaimanLipi', serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --spacing-section: 8rem;
+  --spacing-section-sm: 4rem;
+
+  /* Radius */
+  --radius-card: 1.25rem;
+  --radius-card-lg: 2rem;
+  --radius-button: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 6px 28px -10px rgba(15, 81, 50, 0.18), 0 2px 6px rgba(14, 20, 16, 0.04);
+  --shadow-card-hover: 0 28px 70px -16px rgba(15, 81, 50, 0.28), 0 6px 20px rgba(14, 20, 16, 0.08);
+  --shadow-gold: 0 8px 32px -8px rgba(201, 162, 79, 0.35);
+}
+
+/* JS-readable variables */
+:root {
+  --emerald: #0F5132;
+  --emerald-deep: #08381F;
+  --emerald-bright: #1A7C50;
+  --gold: #C9A24F;
+  --gold-bright: #E7C77E;
+  --gold-deep: #9C7C32;
+  --ink: #0E1410;
+  --ink-soft: #243027;
+  --paper: #FAF6EE;
+  --paper-2: #F2EBD9;
+  --paper-3: #E8DEC4;
+  --border: #E5DCC4;
+  --midnight: #0A1410;
+}
+
+[data-theme="dark"] {
+  --emerald: #1A7C50;
+  --emerald-deep: #0F5132;
+  --emerald-bright: #3FAA7A;
+  --gold: #E7C77E;
+  --gold-bright: #F1D89A;
+  --gold-deep: #C9A24F;
+  --ink: #FAF6EE;
+  --ink-soft: #D7CBA9;
+  --paper: #0A1410;
+  --paper-2: #0F1B14;
+  --paper-3: #15251C;
+  --border: #243027;
+}
+
+[data-theme="dark"] body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* =========================================================
+   Base
+   ========================================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv11";
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+::selection {
+  background: rgba(201, 162, 79, 0.35);
+  color: var(--emerald-deep);
+}
+
+[data-theme="dark"] ::selection {
+  background: rgba(231, 199, 126, 0.3);
+  color: var(--gold-bright);
+}
+
+/* =========================================================
+   Typography helpers
+   ========================================================= */
+
+.font-display { font-family: var(--font-display); font-feature-settings: "ss01", "salt"; letter-spacing: -0.02em; }
+.font-bn { font-family: var(--font-bn); }
+.font-mono { font-family: var(--font-mono); }
+
+.balance { text-wrap: balance; }
+.pretty { text-wrap: pretty; }
+
+/* Display headings get a deliberate italic display option via .italic-display */
+.italic-display { font-family: var(--font-display); font-style: italic; font-weight: 400; }
+
+/* =========================================================
+   Scrollbar
+   ========================================================= */
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--emerald) 0%, var(--gold-deep) 100%);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--emerald-deep); }
+
+* { scrollbar-width: thin; scrollbar-color: var(--emerald) transparent; }
+
+/* =========================================================
+   Focus
+   ========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -120%;
+  left: 1rem;
+  z-index: 100000;
+  padding: 0.6rem 1.2rem;
+  background: var(--emerald);
+  color: #FAF6EE;
+  border-radius: 0 0 12px 12px;
+  font-weight: 600;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+
+/* =========================================================
+   Noise overlay (premium grain)
+   ========================================================= */
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.038;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+[data-theme="dark"] .noise-overlay {
+  opacity: 0.06;
+  mix-blend-mode: screen;
+}
+
+/* =========================================================
+   Custom cursor
+   ========================================================= */
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.22s, height 0.22s, background 0.22s;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--emerald-bright);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.32s, height 0.32s, border-color 0.32s, background 0.32s;
+}
+
+/* =========================================================
+   Gradient text & utilities
+   ========================================================= */
+
+.gradient-text {
+  background: linear-gradient(120deg, var(--emerald) 0%, var(--gold-deep) 60%, var(--emerald-bright) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.gradient-text-animate {
+  background: linear-gradient(
+    90deg,
+    var(--emerald) 0%,
+    var(--gold) 25%,
+    var(--emerald-bright) 50%,
+    var(--gold-bright) 75%,
+    var(--emerald) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-shift 8s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* =========================================================
+   Shimmer (used on the hero kicker line)
+   ========================================================= */
+
+.shimmer-text {
+  background: linear-gradient(
+    100deg,
+    var(--ink) 30%,
+    var(--gold) 50%,
+    var(--ink) 70%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+[data-theme="dark"] .shimmer-text {
+  background: linear-gradient(
+    100deg,
+    var(--ink) 30%,
+    var(--gold-bright) 50%,
+    var(--ink) 70%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: 0% center; }
+}
+
+/* =========================================================
+   Blob morph
+   ========================================================= */
+
+@keyframes blob-morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0,0) rotate(0deg); }
+  25%      { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: translate(2%, -1%) rotate(8deg); }
+  50%      { border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%; transform: translate(-1%, 2%) rotate(-6deg); }
+  75%      { border-radius: 60% 40% 60% 30% / 60% 70% 40% 50%; transform: translate(1%, 1%) rotate(4deg); }
+}
+
+.blob {
+  animation: blob-morph 14s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+
+/* =========================================================
+   Marquee
+   ========================================================= */
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-left  { animation: marquee-left  45s linear infinite; }
+.marquee-right { animation: marquee-right 55s linear infinite; }
+
+/* =========================================================
+   Glass
+   ========================================================= */
+
+.glass {
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  background: rgba(250, 246, 238, 0.72);
+  border: 1px solid rgba(229, 220, 196, 0.6);
+}
+
+[data-theme="dark"] .glass {
+  background: rgba(15, 27, 20, 0.6);
+  border: 1px solid rgba(36, 48, 39, 0.7);
+}
+
+/* =========================================================
+   Dot grid + line grid backgrounds
+   ========================================================= */
+
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(15, 81, 50, 0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+[data-theme="dark"] .dot-grid {
+  background-image: radial-gradient(circle, rgba(231, 199, 126, 0.18) 1px, transparent 1px);
+}
+
+.line-grid {
+  background-image:
+    linear-gradient(rgba(15, 81, 50, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 81, 50, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+[data-theme="dark"] .line-grid {
+  background-image:
+    linear-gradient(rgba(231, 199, 126, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(231, 199, 126, 0.06) 1px, transparent 1px);
+}
+
+/* =========================================================
+   Arabesque (very subtle Islamic geometric)
+   ========================================================= */
+
+.arabesque {
+  background-image:
+    radial-gradient(circle at 0% 50%, rgba(15, 81, 50, 0.10) 1px, transparent 1.5px),
+    radial-gradient(circle at 50% 0%, rgba(201, 162, 79, 0.10) 1px, transparent 1.5px),
+    radial-gradient(circle at 100% 50%, rgba(15, 81, 50, 0.10) 1px, transparent 1.5px),
+    radial-gradient(circle at 50% 100%, rgba(201, 162, 79, 0.10) 1px, transparent 1.5px);
+  background-size: 56px 56px;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+}
+
+/* =========================================================
+   Underline sweep (for nav, links)
+   ========================================================= */
+
+.link-sweep {
+  position: relative;
+  display: inline-block;
+}
+.link-sweep::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-sweep:hover::after,
+.link-sweep[data-active="true"]::after {
+  width: 100%;
+}
+
+/* =========================================================
+   Section padding
+   ========================================================= */
+
+.section-pad {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+@media (min-width: 768px) {
+  .section-pad {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* =========================================================
+   Magnetic button base
+   ========================================================= */
+
+.btn-mag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  isolation: isolate;
+}
+
+.btn-mag::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.18), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+.btn-mag:hover::before { opacity: 1; }
+
+.btn-mag-primary {
+  background: linear-gradient(120deg, var(--emerald) 0%, var(--emerald-bright) 100%);
+  color: #FAF6EE;
+  box-shadow: 0 12px 32px -10px rgba(15, 81, 50, 0.55);
+}
+.btn-mag-primary:hover { box-shadow: 0 18px 44px -10px rgba(15, 81, 50, 0.7); }
+
+.btn-mag-gold {
+  background: linear-gradient(120deg, var(--gold-deep) 0%, var(--gold-bright) 100%);
+  color: var(--ink);
+  box-shadow: 0 12px 32px -10px rgba(201, 162, 79, 0.55);
+}
+
+.btn-mag-ghost {
+  background: transparent;
+  border: 1px solid var(--border-strong, var(--ink-soft));
+  color: var(--ink);
+}
+
+/* =========================================================
+   Counter / number display
+   ========================================================= */
+
+.numeral {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum", "lnum";
+}
+
+/* =========================================================
+   Curved SVG dividers wrapper
+   ========================================================= */
+
+.divider-wave {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+
+/* =========================================================
+   Reduced motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee-left, .marquee-right, .blob { animation: none; }
+}
+
+/* =========================================================
+   Lenis smooth scroll
+   ========================================================= */
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+/* =========================================================
+   Theme toggle helper
+   ========================================================= */
+
+.theme-toggle {
+  position: relative;
+  width: 56px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.theme-toggle .knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--emerald) 0%, var(--gold) 100%);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+[data-theme="dark"] .theme-toggle .knob {
+  transform: translateX(28px);
+}
+
+/* =========================================================
+   Tiny utilities
+   ========================================================= */
+
+.container-page {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container-page { padding-inline: 2rem; }
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  font-weight: 500;
+}
+.kicker::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+[data-theme="dark"] .kicker { color: var(--gold-bright); }
