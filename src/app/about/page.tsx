@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/seo";
 import { bio } from "@/lib/data/bio";
 import { site } from "@/lib/site";
@@ -69,8 +70,51 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Glimpses gallery */}
       <section className="section-pad relative overflow-hidden">
+        <div className="container-page">
+          <ScrollReveal>
+            <span className="kicker">Glimpses</span>
+          </ScrollReveal>
+          <ScrollReveal delay={0.05}>
+            <h2 className="font-display text-4xl md:text-5xl mt-6 leading-[1.04] tracking-tight balance max-w-2xl">
+              A few moments — outside the classroom, on the road.
+            </h2>
+          </ScrollReveal>
+
+          <div className="mt-14 grid grid-cols-12 gap-4 md:gap-5">
+            <ScrollReveal className="col-span-12 md:col-span-7 row-span-2">
+              <div className="relative aspect-[4/5] md:aspect-[4/4.4] rounded-card-lg overflow-hidden ring-1 ring-border">
+                <Image
+                  src="/1.jpg"
+                  alt="Ubaydullah Nayeem at a gathering"
+                  fill
+                  sizes="(min-width: 768px) 56vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal className="col-span-6 md:col-span-5" delay={0.08}>
+              <div className="relative aspect-[4/3] rounded-card-lg overflow-hidden ring-1 ring-border">
+                <Image src="/2.jpg" alt="Ubaydullah Nayeem" fill sizes="(min-width: 768px) 35vw, 50vw" className="object-cover" />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal className="col-span-6 md:col-span-5" delay={0.16}>
+              <div className="relative aspect-[4/3] rounded-card-lg overflow-hidden ring-1 ring-border">
+                <Image src="/3.jpg" alt="Ubaydullah Nayeem" fill sizes="(min-width: 768px) 35vw, 50vw" className="object-cover" />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal className="col-span-12 md:col-span-5" delay={0.24}>
+              <div className="relative aspect-[4/3] md:aspect-[16/9] rounded-card-lg overflow-hidden ring-1 ring-border">
+                <Image src="/4.jpg" alt="Ubaydullah Nayeem" fill sizes="(min-width: 768px) 35vw, 100vw" className="object-cover" />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="section-pad relative overflow-hidden bg-paper-2">
         <div className="container-page">
           <ScrollReveal>
             <span className="kicker">Journey</span>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { GradientBlob } from "@/components/effects/GradientBlob";
@@ -119,46 +120,43 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — vertical stat / framed quote */}
+        {/* Right — portrait frame */}
         <div className="lg:col-span-5 relative">
           <Parallax speed={40}>
             <motion.div
               initial={{ opacity: 0, y: 32, rotate: -2 }}
               animate={{ opacity: 1, y: 0, rotate: -2 }}
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="relative ml-auto max-w-md aspect-[4/5] rounded-card-lg glass p-8 shadow-card overflow-hidden"
+              className="relative ml-auto max-w-md aspect-[4/5] rounded-card-lg overflow-hidden shadow-card-hover ring-1 ring-border"
             >
+              <Image
+                src="/main.jpeg"
+                alt="Ubaydullah Nayeem"
+                fill
+                priority
+                sizes="(min-width: 1024px) 420px, 80vw"
+                className="object-cover object-center"
+              />
+              {/* Gradient wash for premium tone */}
               <div
                 aria-hidden
-                className="absolute inset-0 opacity-30"
+                className="absolute inset-0 mix-blend-multiply"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(15,81,50,0.12) 0%, rgba(201,162,79,0.18) 100%)",
+                    "linear-gradient(180deg, rgba(10,20,16,0) 35%, rgba(10,20,16,0.55) 100%)",
                 }}
               />
-              <div className="relative h-full flex flex-col">
-                <div className="flex items-center justify-between text-xs tracking-[0.2em] uppercase text-ink-muted">
-                  <span>Year founded</span>
-                  <span className="numeral text-emerald text-2xl">
-                    {site.madrasah.founded}
-                  </span>
-                </div>
-
-                <div className="my-auto flex flex-col gap-4">
-                  <p className="font-display italic-display text-3xl leading-snug text-emerald-deep">
-                    &ldquo;A hafiz is not a tape recorder. The Quran is meant to
-                    live in his manners, his sleep, his prayer.&rdquo;
-                  </p>
-                  <p className="text-xs tracking-widest uppercase text-ink-muted">
-                    — On the work
-                  </p>
-                </div>
-
-                <div className="mt-auto pt-6 border-t border-border/70 flex items-center justify-between text-xs">
-                  <span className="font-bn text-base text-ink-soft">
+              {/* Frame caption */}
+              <div className="absolute inset-x-0 bottom-0 p-6 text-paper">
+                <p className="font-display italic-display text-lg leading-snug">
+                  &ldquo;A hafiz is not a tape recorder. The Quran is meant to
+                  live in his manners.&rdquo;
+                </p>
+                <div className="mt-3 flex items-center justify-between text-[10px] tracking-[0.22em] uppercase opacity-80">
+                  <span className="font-bn text-sm normal-case tracking-normal">
                     {site.madrasah.nameBn}
                   </span>
-                  <span className="text-ink-muted">Jatrabari · Dhaka</span>
+                  <span>Jatrabari · Dhaka</span>
                 </div>
               </div>
             </motion.div>
