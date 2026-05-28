@@ -74,8 +74,8 @@ export function Hero() {
             className="text-xl md:text-2xl text-ink-soft/85 tracking-tight"
           >
             <L
-              en={<>Hafiz · Qari · <span className="text-ink-muted">{site.honorific}</span></>}
-              bn={<>হাফেজ ক্বারী · <span className="text-ink-muted">মাদরাসা পরিচালক</span></>}
+              en={<>Hafiz · Qari · <span className="text-ink-muted">Mu&apos;allim</span></>}
+              bn={<>হাফেজ · ক্বারী · <span className="text-ink-muted">মুয়াল্লিম</span></>}
             />
           </motion.p>
 
