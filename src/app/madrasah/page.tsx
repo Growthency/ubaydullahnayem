@@ -129,22 +129,27 @@ export default function MadrasahPage() {
                       : "bg-paper-2 border border-border hover:border-emerald/40 hover:shadow-card-hover"
                   }`}
                 >
-                  <div className="flex items-baseline justify-between">
-                    <h3 className="font-display text-4xl tracking-tight">{d.name}</h3>
-                    <span className="numeral text-xs tracking-[0.18em] uppercase opacity-70">{d.ages}</span>
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="font-display text-4xl tracking-tight">
+                      <L en={d.name} bn={d.nameBn} />
+                    </h3>
+                    <span className="text-xs tracking-[0.18em] uppercase opacity-70 shrink-0">
+                      <L en={d.ages} bn={d.agesBn} />
+                    </span>
                   </div>
-                  <p className={`font-bn text-base mt-1 ${i % 3 === 1 ? "text-gold-bright" : "text-emerald"}`}>
-                    {d.nameBn}
+                  <p className="mt-5 leading-relaxed opacity-90">
+                    <L en={d.summary} bn={d.summaryBn} />
                   </p>
-                  <p className="mt-5 leading-relaxed opacity-90">{d.summary}</p>
                   <ul className="mt-6 space-y-2.5">
-                    {d.track.map((t) => (
+                    {d.track.map((t, idx) => (
                       <li key={t} className="flex items-start gap-2.5 text-sm leading-snug">
                         <Check
                           size={16}
                           className={`shrink-0 mt-0.5 ${i % 3 === 1 ? "text-gold-bright" : "text-emerald"}`}
                         />
-                        <span className="opacity-95">{t}</span>
+                        <span className="opacity-95">
+                          <L en={t} bn={d.trackBn[idx] ?? t} />
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -177,8 +182,12 @@ export default function MadrasahPage() {
             {madrasah.approach.map((a) => (
               <StaggerItem key={a.title}>
                 <div className="rounded-card-lg bg-paper border border-border p-8 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500">
-                  <h3 className="font-display text-2xl md:text-3xl tracking-tight">{a.title}</h3>
-                  <p className="mt-3 text-ink-soft leading-relaxed pretty">{a.body}</p>
+                  <h3 className="font-display text-2xl md:text-3xl tracking-tight">
+                    <L en={a.title} bn={a.titleBn} />
+                  </h3>
+                  <p className="mt-3 text-ink-soft leading-relaxed pretty">
+                    <L en={a.body} bn={a.bodyBn} />
+                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -189,10 +198,12 @@ export default function MadrasahPage() {
               <L en="Facilities" bn="সুযোগ-সুবিধা" />
             </h3>
             <ul className="mt-5 grid md:grid-cols-2 gap-x-10 gap-y-3">
-              {madrasah.facilities.map((f) => (
+              {madrasah.facilities.map((f, idx) => (
                 <li key={f} className="flex items-start gap-2.5 text-ink-soft">
                   <Check size={16} className="text-emerald mt-1 shrink-0" />
-                  <span>{f}</span>
+                  <span>
+                    <L en={f} bn={madrasah.facilitiesBn[idx] ?? f} />
+                  </span>
                 </li>
               ))}
             </ul>
@@ -239,10 +250,14 @@ export default function MadrasahPage() {
             {madrasah.admissions.process.map((p) => (
               <StaggerItem key={p.step}>
                 <div className="grid md:grid-cols-12 gap-6 rounded-card-lg p-8 bg-paper-2 border border-border hover:bg-paper hover:border-emerald/40 hover:shadow-card-hover transition-all duration-500">
-                  <div className="md:col-span-2 numeral text-3xl md:text-4xl text-emerald">{p.step}</div>
+                  <div className="md:col-span-2 text-3xl md:text-4xl text-emerald font-medium">{p.step}</div>
                   <div className="md:col-span-10">
-                    <h3 className="font-display text-2xl md:text-3xl tracking-tight">{p.title}</h3>
-                    <p className="mt-3 text-ink-soft leading-relaxed pretty">{p.body}</p>
+                    <h3 className="font-display text-2xl md:text-3xl tracking-tight">
+                      <L en={p.title} bn={p.titleBn} />
+                    </h3>
+                    <p className="mt-3 text-ink-soft leading-relaxed pretty">
+                      <L en={p.body} bn={p.bodyBn} />
+                    </p>
                   </div>
                 </div>
               </StaggerItem>

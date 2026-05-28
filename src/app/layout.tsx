@@ -131,8 +131,12 @@ export const viewport: Viewport = {
 
 const prePaintScript = `(function(){
   try {
-    var l = localStorage.getItem('un-locale');
-    document.documentElement.setAttribute('data-locale', (l === 'en' || l === 'bn') ? l : 'bn');
+    // Cookie set by middleware wins (URL is the source of truth for /en).
+    var c = document.cookie.match(/(?:^|; )un-locale=([^;]*)/);
+    var fromCookie = c && (c[1] === 'en' || c[1] === 'bn') ? c[1] : null;
+    var fromStorage = localStorage.getItem('un-locale');
+    var locale = fromCookie || ((fromStorage === 'en' || fromStorage === 'bn') ? fromStorage : 'bn');
+    document.documentElement.setAttribute('data-locale', locale);
     var t = localStorage.getItem('un-theme');
     if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
   } catch (e) {
