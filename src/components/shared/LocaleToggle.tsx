@@ -5,29 +5,30 @@ import { useLocale } from "@/components/providers/LocaleProvider";
 import { cn } from "@/lib/utils";
 
 /**
- * Locale switcher.
+ * Language switcher.
+ *   বাং → / (or strips an /en prefix)
+ *   EN  → /en (or /en/<current-path>)
  *
- * Toggles between Bengali (default at /) and English (/en/*).
- * Switching navigates the URL itself — /en is a real, shareable URL —
- * and the middleware sets the locale cookie on every visit so the
- * choice persists across navigations.
+ * Optimistically flips the locale on click (instant UI swap), then
+ * navigates so the URL itself reflects the language — /en is a real,
+ * shareable address. The middleware + LocaleProvider keep the rest
+ * in sync from the URL.
  */
 export function LocaleToggle({ className }: { className?: string }) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
-  const { locale } = useLocale();
+  const { locale, setLocale } = useLocale();
 
-  // Compute the URL path stripped of any /en prefix.
-  const stripped = pathname.replace(/^\/en(\/|$)/, "/");
+  const stripped = pathname.replace(/^\/en(?=\/|$)/, "") || "/";
 
   const goBn = () => {
-    const target = stripped === "" ? "/" : stripped;
-    router.push(target);
+    if (locale !== "bn") setLocale("bn");
+    router.push(stripped);
   };
 
   const goEn = () => {
-    const target = stripped === "/" ? "/en" : `/en${stripped}`;
-    router.push(target);
+    if (locale !== "en") setLocale("en");
+    router.push(stripped === "/" ? "/en" : `/en${stripped}`);
   };
 
   return (
@@ -45,9 +46,7 @@ export function LocaleToggle({ className }: { className?: string }) {
         aria-pressed={locale === "bn"}
         className={cn(
           "px-3 py-1 rounded-full transition-colors",
-          locale === "bn"
-            ? "bg-emerald text-paper"
-            : "text-ink-muted hover:text-emerald",
+          locale === "bn" ? "bg-emerald text-paper" : "text-ink-muted hover:text-emerald",
         )}
       >
         বাং
@@ -58,9 +57,7 @@ export function LocaleToggle({ className }: { className?: string }) {
         aria-pressed={locale === "en"}
         className={cn(
           "px-3 py-1 rounded-full transition-colors",
-          locale === "en"
-            ? "bg-emerald text-paper"
-            : "text-ink-muted hover:text-emerald",
+          locale === "en" ? "bg-emerald text-paper" : "text-ink-muted hover:text-emerald",
         )}
       >
         EN

@@ -49,7 +49,7 @@ export async function BlogPreview() {
             >
               <div className="flex items-center gap-3 text-xs tracking-[0.18em] uppercase text-ink-muted">
                 <span className="px-3 py-1 rounded-full border border-border bg-paper">
-                  {featured.category}
+                  <L en={featured.category} bn={featured.category_bn ?? featured.category} />
                 </span>
                 <span>{formatBnDate(featured.published_at)}</span>
                 <span>·</span>
@@ -59,12 +59,11 @@ export async function BlogPreview() {
                 </span>
               </div>
               <h3 className="font-display text-4xl md:text-5xl mt-8 leading-[1.05] tracking-tight group-hover:text-emerald transition-colors balance">
-                {featured.title}
+                <L en={featured.title} bn={featured.title_bn ?? featured.title} />
               </h3>
-              {featured.title_bn && (
-                <p className="font-bn text-base text-emerald mt-2">{featured.title_bn}</p>
-              )}
-              <p className="mt-6 text-ink-soft leading-relaxed max-w-xl">{featured.excerpt}</p>
+              <p className="mt-6 text-ink-soft leading-relaxed max-w-xl">
+                <L en={featured.excerpt} bn={featured.excerpt_bn ?? featured.excerpt} />
+              </p>
               <span className="mt-8 inline-flex items-center gap-2 text-emerald font-medium link-sweep">
                 <L en="Read the entry" bn="পড়ুন" /> <ArrowUpRight size={18} />
               </span>
@@ -79,14 +78,20 @@ export async function BlogPreview() {
                   className="group block h-full rounded-card-lg border border-border p-7 bg-paper hover:border-emerald/40 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500"
                 >
                   <div className="flex items-center gap-3 text-xs tracking-[0.18em] uppercase text-ink-muted">
-                    <span>{p.category}</span>
+                    <span>
+                      <L en={p.category} bn={p.category_bn ?? p.category} />
+                    </span>
                     <span>·</span>
-                    <span>{p.reading_minutes} min</span>
+                    <span>
+                      {p.reading_minutes} <L en="min" bn="মিনিট" />
+                    </span>
                   </div>
                   <h3 className="font-display text-2xl mt-4 leading-tight tracking-tight group-hover:text-emerald transition-colors">
-                    {p.title}
+                    <L en={p.title} bn={p.title_bn ?? p.title} />
                   </h3>
-                  <p className="mt-3 text-sm text-ink-muted leading-relaxed line-clamp-2">{p.excerpt}</p>
+                  <p className="mt-3 text-sm text-ink-muted leading-relaxed line-clamp-2">
+                    <L en={p.excerpt} bn={p.excerpt_bn ?? p.excerpt} />
+                  </p>
                 </Link>
               </ScrollReveal>
             ))}

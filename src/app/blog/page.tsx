@@ -84,16 +84,17 @@ export default async function BlogIndexPage() {
                     <span className="px-3 py-1 rounded-full bg-emerald/10 text-emerald font-medium">
                       <L en="Featured" bn="বিশেষ" />
                     </span>
-                    <span>{featured.category}</span>
+                    <span>
+                      <L en={featured.category} bn={featured.category_bn ?? featured.category} />
+                    </span>
                     <span>·</span>
                     <span>{formatBnDate(featured.published_at)}</span>
                   </div>
                   <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.98] tracking-tight balance group-hover:text-emerald transition-colors">
-                    {featured.title}
+                    <L en={featured.title} bn={featured.title_bn ?? featured.title} />
                   </h2>
-                  <p className="font-bn text-lg text-emerald mt-3">{featured.title_bn}</p>
                   <p className="mt-6 text-lg text-ink-soft leading-relaxed pretty max-w-xl">
-                    {featured.excerpt}
+                    <L en={featured.excerpt} bn={featured.excerpt_bn ?? featured.excerpt} />
                   </p>
                   <span className="mt-8 inline-flex items-center gap-2 text-emerald font-medium link-sweep">
                     <L en="Read the entry" bn="পড়ুন" /> <ArrowUpRight size={18} />
@@ -141,14 +142,17 @@ export default async function BlogIndexPage() {
           <span className="text-xs tracking-[0.2em] uppercase text-ink-muted mr-1">
             <L en="Categories" bn="বিভাগসমূহ" />
           </span>
-          {categories.map((c) => (
-            <span
-              key={c}
-              className="px-4 py-1.5 rounded-full border border-border bg-paper"
-            >
-              {c}
-            </span>
-          ))}
+          {posts
+            .map((p) => ({ en: p.category, bn: p.category_bn ?? p.category }))
+            .filter((c, i, arr) => arr.findIndex((x) => x.en === c.en) === i)
+            .map((c) => (
+              <span
+                key={c.en}
+                className="px-4 py-1.5 rounded-full border border-border bg-paper"
+              >
+                <L en={c.en} bn={c.bn} />
+              </span>
+            ))}
         </div>
       </section>
 
@@ -163,7 +167,9 @@ export default async function BlogIndexPage() {
                   className="group h-full block rounded-card-lg border border-border bg-paper-2 p-8 hover:bg-paper hover:border-emerald/40 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500"
                 >
                   <div className="flex items-center gap-3 text-xs tracking-[0.18em] uppercase text-ink-muted">
-                    <span>{p.category}</span>
+                    <span>
+                      <L en={p.category} bn={p.category_bn ?? p.category} />
+                    </span>
                     <span>·</span>
                     <span>
                       {p.reading_minutes}{" "}
@@ -173,7 +179,9 @@ export default async function BlogIndexPage() {
                   <h3 className="font-display text-2xl md:text-3xl mt-5 leading-tight tracking-tight group-hover:text-emerald transition-colors">
                     <L en={p.title} bn={p.title_bn ?? p.title} />
                   </h3>
-                  <p className="mt-4 text-sm text-ink-soft leading-relaxed pretty line-clamp-4">{p.excerpt}</p>
+                  <p className="mt-4 text-sm text-ink-soft leading-relaxed pretty line-clamp-4">
+                    <L en={p.excerpt} bn={p.excerpt_bn ?? p.excerpt} />
+                  </p>
                   <div className="mt-5 text-xs text-ink-muted">{formatBnDate(p.published_at)}</div>
                 </Link>
               </StaggerItem>

@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
 
 export type Locale = "bn" | "en";
 
@@ -25,48 +26,50 @@ const LocaleContext = createContext<Ctx>({
 const STORAGE_KEY = "un-locale";
 const COOKIE_NAME = "un-locale";
 
-function readCookie(name: string): Locale | null {
+function readCookie(): Locale | null {
   if (typeof document === "undefined") return null;
-  const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
-  if (!match) return null;
-  const v = decodeURIComponent(match[1]);
-  return v === "en" || v === "bn" ? v : null;
+  const m = document.cookie.match(/(?:^|;\s*)un-locale=(en|bn)/);
+  return m ? (m[1] as Locale) : null;
 }
 
 function writeCookie(value: Locale) {
   if (typeof document === "undefined") return;
-  const oneYear = 60 * 60 * 24 * 365;
-  document.cookie = `${COOKIE_NAME}=${value}; path=/; max-age=${oneYear}; samesite=lax`;
+  document.cookie = `${COOKIE_NAME}=${value}; path=/; max-age=${60 * 60 * 24 * 365}; samesite=lax`;
 }
 
+/**
+ * URL is the single source of truth for language:
+ *   - pathname under /en  → English
+ *   - everything else      → Bangla (default)
+ *
+ * This runs on every navigation (usePathname dependency), so the
+ * client-side toggle + router.push("/en") immediately re-derives the
+ * locale without waiting on a cookie round-trip.
+ */
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  // Initial state comes from <html data-locale="…"> which the middleware
-  // sets via cookie + the pre-paint script in layout.tsx reads from
-  // localStorage, so this is just the React mirror.
-  const [locale, setLocale] = useState<Locale>("bn");
-  const [mounted, setMounted] = useState(false);
+  const pathname = usePathname() ?? "/";
+  const [locale, setLocaleState] = useState<Locale>("bn");
 
+  // Derive from URL on every navigation.
   useEffect(() => {
-    // Cookie (set by middleware on /en visits) wins over localStorage,
-    // because URL is the source of truth for an explicit /en entry.
-    const fromCookie = readCookie(COOKIE_NAME);
-    const fromStorage =
-      typeof window !== "undefined"
-        ? (localStorage.getItem(STORAGE_KEY) as Locale | null)
-        : null;
-    const initial = fromCookie ?? fromStorage ?? "bn";
-    setLocale(initial);
-    setMounted(true);
-  }, []);
+    const urlIsEn = pathname === "/en" || pathname.startsWith("/en/");
+    const next: Locale = urlIsEn ? "en" : "bn";
+    setLocaleState(next);
+    document.documentElement.setAttribute("data-locale", next);
+    localStorage.setItem(STORAGE_KEY, next);
+    writeCookie(next);
+  }, [pathname]);
 
-  useEffect(() => {
-    if (!mounted) return;
-    document.documentElement.setAttribute("data-locale", locale);
-    localStorage.setItem(STORAGE_KEY, locale);
-    writeCookie(locale);
-  }, [locale, mounted]);
+  // Manual override used by the toggle for an instant optimistic update
+  // (the router.push that follows keeps the URL in sync).
+  const setLocale = (l: Locale) => {
+    setLocaleState(l);
+    document.documentElement.setAttribute("data-locale", l);
+    localStorage.setItem(STORAGE_KEY, l);
+    writeCookie(l);
+  };
 
-  const toggle = () => setLocale((l) => (l === "bn" ? "en" : "bn"));
+  const toggle = () => setLocale(locale === "bn" ? "en" : "bn");
 
   return (
     <LocaleContext.Provider value={{ locale, toggle, setLocale }}>
@@ -76,3 +79,5 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 }
 
 export const useLocale = () => useContext(LocaleContext);
+
+export { readCookie };
