@@ -240,6 +240,42 @@ html[data-locale="bn"] em {
 }
 
 /* =========================================================
+   Interactive cursor — every clickable shows the hand pointer.
+   Native <button> defaults to the arrow cursor in most browsers,
+   so we force pointer on all interactive elements (toggles,
+   scroll-to-top, pagination, tabs, magnetic buttons, links, etc.)
+   and not-allowed on disabled ones.
+   ========================================================= */
+
+button,
+a,
+summary,
+label,
+select,
+[role="button"],
+[role="tab"],
+[role="switch"],
+[data-cursor],
+.btn-mag,
+.theme-toggle,
+.link-sweep {
+  cursor: pointer;
+}
+
+button:disabled,
+button[aria-disabled="true"],
+[role="button"][aria-disabled="true"],
+.btn-mag:disabled {
+  cursor: not-allowed;
+}
+
+/* Text inputs/areas keep the text caret. */
+input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
+textarea {
+  cursor: text;
+}
+
+/* =========================================================
    Scrollbar
    ========================================================= */
 
